@@ -2,6 +2,8 @@ const express = require('express');
 const mongoskin = require('mongoskin');
 const db = mongoskin.db('mongodb://localhost:27017/st',{native_parser:true}); 
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
+const path = require('path');
 const routes = require('./routes/routes');
 const products = require('./routes/products');
 
@@ -10,8 +12,9 @@ const port = process.env.PORT || 3000;
 app.listen(port);
 
 app.set('view engine','ejs');
-app.set('views','views');
+app.set('views',__dirname+'/views');
 app.use(express.static('public'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use((req,res,next) => {
