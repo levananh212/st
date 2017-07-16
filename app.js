@@ -24,9 +24,9 @@ app.get('/',routes.index);
 app.get('/about',routes.about);
 app.get('/contact',routes.contact);
 app.get('/products',products.allProducts);
-app.get('/products/:product_name',products.oneProduct);
-app.post('/products/:product_name',products.addProduct);
-app.delete('/products/:product_name',products.delProduct);
+app.get('/products/:_id',products.oneProduct);
+app.post('/products',products.addProduct);
+app.delete('/products/:_id',products.delProduct);
 
 app.all('*',(req,res) => res.status(404).send());
 app.use((err,req,res,next) => res.status(500).send(err.toString()));

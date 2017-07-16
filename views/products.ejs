@@ -4,15 +4,22 @@
         <title><%=title%></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <%- include ./partials/header%>
-        <br/>
+        <br/><br/><br/>
+        <div class='gallery-container'>
             <% for (var i=0; i<products.length ; i++) { %>   
-                <img scr=<%=products[i].img%> height='300px' width='300px' >
-            <%  } %>
-        <br/>
+                <div class="gallery">
+                    <a href="/products/<%=products[i]._id%>">
+                        <img src=<%=products[i].img%>  width="450px" height="260px">
+                    </a>
+                    <div class="desc"><%=products[i].name%></div>
+                </div>
+            <%}%>
+        </div>
+        <br/><br/><br/>
         <%- include ./partials/footer%>
     </body>
 </html>

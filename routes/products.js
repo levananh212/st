@@ -6,7 +6,7 @@ exports.allProducts = (req,res,next) => {
 }
 
 exports.oneProduct = (req,res,next) => {
-    req.db.products.find({_id : req.product._id}).toArray((err,product) => {
+    req.db.products.findById(req.params._id,(err,product) => {
         if (err) return next(err);
         res.render('product', {title : 'Product' , product });
     });
@@ -26,7 +26,7 @@ exports.addProduct = (req,res,next) => {
 }
 
 exports.delProduct = (req,res,next) => {
-    req.db.products.removeById(req.product_id, (err,pcount) => {
+    req.db.products.removeById(req.params._id, (err,pcount) => {
         if (err) return next(err);
         if (count !== 1) return next(new Error('Fail to delete!'));
         res.redirect('/');

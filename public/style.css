@@ -19,6 +19,7 @@ div.text-back{
     font-size: 140%;
     font-family: 'Times New Roman', Times, serif;
     color : #00ace6;
+    clear: left;
 }
 li {
     float: left;
@@ -44,4 +45,52 @@ div.menu-container{
 a:hover{
     text-decoration: underline;
     color : #000080;
+}
+div.gallery{
+    margin : 5px;
+    border : 1px solid #00ace6;
+    float: left;
+    width: 450px;
+}
+div.gallery:hover {
+    border: 1px solid #000080;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+    color : #00ace6;
+    font-size: 140%;
+    font-family: 'Times New Roman', Times, serif;
+}
+div.gallery-container{
+    width : 950px;
+    padding : 10px;
+    margin : 0 auto;
+    position:  relative;
+}
+div.product-img{
+    height : 442px;
+    float : left;
+    position:  relative;
+    margin-left: 50px;
+}
+div.product-desc{
+    width: 500px;
+    height : 442px;
+    float: right;
+    position:  relative;
+}
+div.product-desc h3{
+    padding:  10px;
+    text-align: left;   
+    font-size: 270%;
+    font-family: 'Times New Roman', Times, serif;
+    color : #00ace6;
+}
+div.product-desc p{
+    padding:  10px;
+    text-align: left;   
+    font-size: 180%;
+    font-family: 'Times New Roman', Times, serif;
+    color : #00ace6;
 }
