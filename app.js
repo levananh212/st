@@ -4,8 +4,10 @@ const db = mongoskin.db('mongodb://admin:12341qaz@ds161162.mlab.com:61162/heroku
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
-const routes = require('./routes/routes');
-const products = require('./routes/products');
+const passport = require('passport');
+const Strategy = require('passport-facebook').Strategy;
+const routes = require('./controllers/routes');
+const products = require('./controllers/products');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +24,8 @@ app.use((req,res,next) => {
     req.db.products = db.collection('products');
     next();
 });
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/',routes.index);
 app.get('/about',routes.about);
@@ -31,5 +35,5 @@ app.get('/products/:_id',products.oneProduct);
 app.post('/products',products.addProduct);
 app.delete('/products/:_id',products.delProduct);
 
-app.all('*',(req,res) => res.status(404).send());
+app.all('*',(req,res) => res.redirect('/'));
 app.use((err,req,res,next) => res.status(500).send(err.toString()));

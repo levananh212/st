@@ -1,6 +1,7 @@
 exports.allProducts = (req,res,next) => {
     req.db.products.find().toArray((err,products) => {
         if (err) return next(err);
+        if (!products) return res.redirect('/');
         res.render('products', {title : 'Products' , products });
     });
 }
@@ -8,6 +9,7 @@ exports.allProducts = (req,res,next) => {
 exports.oneProduct = (req,res,next) => {
     req.db.products.findById(req.params._id,(err,product) => {
         if (err) return next(err);
+        if (!product) return res.redirect('/');
         res.render('product', {title : 'Product' , product });
     });
 }
