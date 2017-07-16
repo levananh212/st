@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoskin = require('mongoskin');
-const db = mongoskin.db('mongodb://heroku_z1ggs2d3@ds161162.mlab.com:61162/heroku_z1ggs2d3',{native_parser:true}); 
+const db = mongoskin.db('mongodb://heroku_z1ggs2d3:12341qaz@ds161162.mlab.com:61162/heroku_z1ggs2d3',{native_parser:true}); 
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
