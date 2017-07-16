@@ -4,17 +4,14 @@
         <title><%=title%></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <%- include ./partials/header%>
         <br/>
-            <% for (product in products) %>
-                {
-                    <span>
-                        <img scr="<%= product.img %>" />
-                    </span>
-                }
+            <% for (var i=0; i<products.length ; i++) { %>   
+                <img scr=<%=products[i].img%> height='300px' width='300px' >
+            <%  } %>
         <br/>
         <%- include ./partials/footer%>
     </body>
