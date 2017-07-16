@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoskin = require('mongoskin');
-const db = mongoskin.db('mongodb://<heroku_z1ggs2d3>:<12341qaz>@ds161162.mlab.com:61162/heroku_z1ggs2d3'); 
+const db = mongoskin.db('mongodb://admin:12341qaz@ds161162.mlab.com:61162/heroku_z1ggs2d3',{authMechanism: 'ScramSHA1'}); 
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
