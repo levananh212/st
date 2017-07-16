@@ -1,7 +1,9 @@
+
 exports.allProducts = (req,res,next) => {
     req.db.products.find().toArray((err,products) => {
         if (err) return next(err);
         if (!products) return res.redirect('/');
+        console.log(req.user);
         res.render('products', {title : 'Products' , products });
     });
 }

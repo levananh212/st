@@ -4,8 +4,9 @@ const db = mongoskin.db('mongodb://admin:12341qaz@ds161162.mlab.com:61162/heroku
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 const passport = require('passport');
-const Strategy = require('passport-facebook').Strategy;
 const routes = require('./controllers/routes');
 const products = require('./controllers/products');
 
@@ -17,15 +18,16 @@ app.set('view engine','ejs');
 app.set('views',__dirname+'/views');
 app.use(express.static('public'));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(expressSession({secret: 'DH374DH87E2H17DH312', resave: true, saveUninitialized: true}));
+
 app.use((req,res,next) => {
     req.db = {};
     req.db.products = db.collection('products');
     next();
 });
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.get('/',routes.index);
 app.get('/about',routes.about);
