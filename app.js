@@ -1,14 +1,16 @@
 const express = require('express');
+const config = require('./credentials');
 const mongoskin = require('mongoskin');
-const db = mongoskin.db('mongodb://admin:12341qaz@ds161162.mlab.com:61162/heroku_z1ggs2d3'); 
+const db = mongoskin.db(config.dbConnection); 
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
-const passport = require('passport');
+const passport = require('./lib/auth');
 const routes = require('./controllers/routes');
 const products = require('./controllers/products');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,7 +23,9 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(expressSession({secret: 'DH374DH87E2H17DH312', resave: true, saveUninitialized: true}));
+app.use(expressSession({secret: config.sessionSecret, resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req,res,next) => {
     req.db = {};
