@@ -20,3 +20,15 @@
     padding: 20px;
     height : 150px;
 }
+
+.jumbotron {
+}
+
+.jumbotron h3 {
+    color : #0F5E98;
+    font-size: 300%;
+}
+
+.jumbotron p {
+    color :#0F5E98;
+}
