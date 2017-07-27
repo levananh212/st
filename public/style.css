@@ -8,7 +8,7 @@
 }
 
 .center-pills a {
-    font-size: 32px;
+    font-size: 30px;
 }
 
 .text-menu {
@@ -31,4 +31,10 @@
 
 .jumbotron p {
     color :#0F5E98;
+}
+
+.text-center {
+    color : #0F5E98;
+    font-size: 150%;
+    margin: 20px;
 }

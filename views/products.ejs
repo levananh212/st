@@ -24,21 +24,21 @@
         </div>
 
         <div class='col-md-12'>
-
+            <br/>
         </div>
 
-        
+        <div class='col-md-12'>
             <% for (var i=0; i<products.length ; i++) { %>   
-                <div class="gallery">
-                    <a href="/products/<%=products[i]._id%>">
-                        <img src=<%=products[i].img%>  width="450px" height="260px">
+                <div class="col-md-3">
+                    <a href="/products/<%=products[i]._id%>" class="thumbnail">
+                        <img src=<%=products[i].img%> />
                     </a>
-                    <div class="desc"><%=products[i].name%></div>
+                    <div class="text-center"><%=products[i].name%></div>
                 </div>
             <%}%>
-
-        <br/><br/><br/>
+        </div>
+        
     </body>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </html>
