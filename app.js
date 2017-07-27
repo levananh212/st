@@ -5,14 +5,15 @@ const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const expressSession = require('express-session');
+const session = require('express-session');
 const passport = require('./lib/auth');
 const routes = require('./controllers/routes');
 const products = require('./controllers/products');
-
+const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 app.listen(3000);
+mongoose.Promise = require('bluebird');
 mongoose.connect(config.dbConnection,{ useMongoClient : true });
 
 app.set('view engine','ejs');
@@ -22,7 +23,14 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cookieParser(config.cookieParser));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(expressSession({secret: config.sessionSecret, resave: true, saveUninitialized: true}));
+app.use(session({
+    secret: config.sessionSecret, 
+    resave: true, 
+    saveUninitialized: true, 
+    store : new MongoStore({
+        url : config.dbConnection
+    })
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.get('/auth/facebook',passport.authenticate('facebook'));
