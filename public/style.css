@@ -38,3 +38,12 @@
     font-size: 150%;
     margin: 20px;
 }
+
+.back-button {
+    font-size: 200%;
+}
+ 
+.fb-like {
+   position: absolute;
+   top: 16px;
+} 
