@@ -5,17 +5,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style.css" rel="stylesheet" type="text/css">
-        <script href="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <%- include ./partials/header %>
-        <br/>
-        <a href='/auth/facebook' class="btn btn-block btn-social btn-facebook">
-            <span class="fa fa-facebook"></span> Sign in with Facebook
-        </a>
-        <img src="http://sv1.upsieutoc.com/2017/07/16/12351169_l.jpg" height='600' width='950' class='center'/>
-        <br/>
+        <div class='col-md-4 logo'>
+            <img src="http://sv1.upsieutoc.com/2017/07/27/ST_logo.png"/>
+        </div>
+        <div class='col-md-8 text-menu'>
+            <ul class='nav nav-pills center-pills'>
+                <li class='active'><a href='/'>Home</a></li>
+                <li><a href='/products'>Products</a></li>
+                <li><a href='/about'>About</a></li>
+                <li><a href='/contact'>Contact</a></li>
+                <li><a href='/auth/facebook'><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class='col-md-12'>
+            <img src="http://sv1.upsieutoc.com/2017/07/27/cover3.jpg"/>
+        </div>
     </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </html>

@@ -7,6 +7,6 @@ const userSchema = mongoose.Schema({
     role : String
 });
 
-const User = mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema,'User');
 
 module.exports = User;

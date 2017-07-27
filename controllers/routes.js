@@ -1,7 +1,4 @@
-exports.index = (req,res) => {
-    console.log(req.user);
-    res.render('index', {title : 'Home'});
-}
+exports.index = (req,res) => res.render('index', {title : 'Home'});
 
 exports.about = (req,res) => res.render('about', {title : 'About' });
 

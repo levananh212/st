@@ -24,7 +24,8 @@ app.use(cookieParser(config.cookieParser));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(session({
-    secret: config.sessionSecret, 
+    secret: config.sessionSecret,
+    maxAge: new Date(Date.now() + 2500000000), 
     resave: true, 
     saveUninitialized: true, 
     store : new MongoStore({
